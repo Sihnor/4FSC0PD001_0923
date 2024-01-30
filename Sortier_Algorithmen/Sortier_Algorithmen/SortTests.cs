@@ -26,11 +26,18 @@ namespace Sortier_Algorithmen
         private readonly List<Algorithms> AlgorithmsArray = new List<Algorithms>();
         private readonly List<Type> ClassList = new List<Type>();
 
+        /// <summary>
+        /// Adds the algorithm.
+        /// </summary>
+        /// <param name="algorithms"></param>
         public void AddAlgorithm(Algorithms algorithms)
         {
             this.AlgorithmsArray.Add(algorithms);
         }
         
+        /// <summary>
+        /// Starts the tests.
+        /// </summary>
         public void StartTests()
         {
             foreach (Algorithms algorithm in this.AlgorithmsArray)
@@ -64,6 +71,12 @@ namespace Sortier_Algorithmen
             
         }
         
+        /// <summary>
+        /// Checks if both are equal.
+        /// </summary>
+        /// <param name="array1">Sorted array</param>
+        /// <param name="array2">Test array</param>
+        /// <returns></returns>
         private bool IsEqual(int[] array1, int[] array2)
         {
             if (array1.Length != array2.Length) return false;

@@ -22,6 +22,9 @@ namespace Sortier_Algorithmen
             }
         }
 
+        /// <summary>
+        /// Das ist der Modul Path welcher in der Aufgabenbeschreibung vorrausgesetzt worden ist.
+        /// </summary>
         private static void ModulePath()
         {
             int[] numberArray = SelectArrayGenerator();
@@ -72,6 +75,9 @@ namespace Sortier_Algorithmen
             }
         }
 
+        /// <summary>
+        /// Mein eigener Path welcher nicht in der Aufgabenbeschreibung vorrausgesetzt worden ist.
+        /// </summary>
         private static void OwnPath()
         {
             int[] ownArray = new int[0];
@@ -115,6 +121,10 @@ namespace Sortier_Algorithmen
             }
         }
 
+        /// <summary>
+        /// Gibt dem Benutzer die Möglichkeit das Array selber zu bestimmen oder generieren zu lassen.
+        /// </summary>
+        /// <returns></returns>
         private static int[] SelectArrayGenerator()
         {
             Console.Clear();
@@ -140,6 +150,10 @@ namespace Sortier_Algorithmen
             return null;
         }
 
+        /// <summary>
+        /// Lässt den Benutzer das Array selber bestimmen.
+        /// </summary>
+        /// <returns></returns>
         private static int[] CreateOwnArray()
         {
             Console.Clear();
@@ -158,6 +172,10 @@ namespace Sortier_Algorithmen
             return numberArray;
         }
 
+        /// <summary>
+        /// Lässt den Benutzer die Generierung des Arrays bestimmen.
+        /// </summary>
+        /// <returns></returns>
         private static int[] GenerateOwnArray()
         {
             Console.Clear();
@@ -199,6 +217,11 @@ namespace Sortier_Algorithmen
             return Algorithms.GetRandomNumberArray(numberOfEntries, min, max);
         }
         
+        /// <summary>
+        /// Lässt den Benutzer auswählen ob das Array beim lösen ausgegeben werden soll.
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
         private static bool SelectPrintArray(int[] array)
         {
             Console.Clear();
@@ -224,6 +247,10 @@ namespace Sortier_Algorithmen
             return false;
         }
 
+        /// <summary>
+        /// Lässt den Benutzer auswählen wie das Array sortiert werden soll.
+        /// </summary>
+        /// <returns>Die ausgewählte Sortierung</returns>
         private static Algorithms.ESort SelectSortType()
         {
             Console.Clear();
@@ -244,6 +271,10 @@ namespace Sortier_Algorithmen
             return (Algorithms.ESort)sortNumber;
         }
 
+        /// <summary>
+        /// Lässt den Benutzer auswählen welcher Algorithmus getestet werden soll.
+        /// </summary>
+        /// <returns>Der Ausgewählte Algorithmus</returns>
         private static Algorithms.EAlgorithm SelectAlgorithm()
         {
             Console.Clear();
@@ -276,6 +307,9 @@ namespace Sortier_Algorithmen
             }
         }
 
+        /// <summary>
+        /// Startet den Benchmark.
+        /// </summary>
         private static void StartBenchmark()
         {
             int[] testArray = Algorithms.GetRandomNumberArray(100000, 1, 1000000);
@@ -296,6 +330,10 @@ namespace Sortier_Algorithmen
             gnomeSort.StartAlgorithm();
         }
 
+        /// <summary>
+        /// Startet den Benchmark mit dem eigenen Array.
+        /// </summary>
+        /// <param name="ownArray"></param>
         private static void StartBenchmark(int[] ownArray)
         {
             BogoSort bogoSort = new BogoSort(ownArray);
@@ -316,6 +354,9 @@ namespace Sortier_Algorithmen
             gnomeSort.StartAlgorithm(printArray);
         }
 
+        /// <summary>
+        /// Startet den Test1 mit Instancen der Algorithmen.
+        /// </summary>
         private static void StartTest1()
         {
             BogoSort bogoSort = new BogoSort();
@@ -336,6 +377,9 @@ namespace Sortier_Algorithmen
             sortTests.StartTests();
         }
 
+        /// <summary>
+        /// Startet den Test2 mit Klassen der Algorithmen.
+        /// </summary>
         private static void StartTest2()
         {
             Console.Clear();
@@ -350,6 +394,9 @@ namespace Sortier_Algorithmen
             sortTests.StartClassTest();
         }
 
+        /// <summary>
+        /// Beendet das Programm mit einer Fehlermeldung.
+        /// </summary>
         private static void WrongInputExit()
         {
             Console.WriteLine("Falsche Eingabe!");

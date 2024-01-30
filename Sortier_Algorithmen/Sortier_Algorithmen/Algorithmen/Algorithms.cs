@@ -53,25 +53,46 @@ namespace Sortier_Algorithmen.Algorithmen
 
         #endregion
 
+        /// <summary>
+        /// Sets the name of the algorithm.
+        /// </summary>
         protected abstract void SetName();
         
+        /// <summary>
+        /// Returns the name of the algorithm.
+        /// </summary>
+        /// <returns>The Algorithm Name</returns>
         public string GetName()
         {
             return this.Name;
         }
 
         /// <summary>
-        /// Starts the algorithm.
+        /// Starts the algorithm with Input. (Good for Benchmarking)
         /// </summary>
         /// <param name="printArray">Prints the number array if true.</param>
         public abstract void StartAlgorithm(bool printArray = false);
 
+        /// <summary>
+        /// Set the sorting algorithm for ascending.
+        /// </summary>
+        /// <param name="copyArray">Array was sotiert werden soll</param>
         protected abstract void AscendingSort(ref int[] copyArray);
+        
+        /// <summary>
+        /// Set the sorting algorithm for descending.
+        /// </summary>
+        /// <param name="copyArray">Array was sotiert werden soll</param>
         protected abstract void DescendingSort(ref int[] copyArray);
+        
+        /// <summary>
+        /// Set the sorting algorithm for zigzag.
+        /// </summary>
+        /// <param name="copyArray">Array was sotiert werden soll</param>
         protected abstract void ZigZagSort(ref int[] copyArray);
 
         /// <summary>
-        /// Starts the algorithm without printing any Output.
+        /// Starts the algorithm without printing any Output. (Good for Testing)
         /// </summary>
         public abstract void StartAlgorithmWithoutOutput();
         
@@ -136,7 +157,7 @@ namespace Sortier_Algorithmen.Algorithmen
         }
         
         /// <summary>
-        /// Checks if the number array is sorted.
+        /// Checks if the number array is ascending sorted.
         /// </summary>
         /// <param name="array">Number array.</param>
         /// <returns>True if sorted, false if not.</returns>
@@ -153,6 +174,11 @@ namespace Sortier_Algorithmen.Algorithmen
             return true;
         }
 
+        /// <summary>
+        /// Checks if the number array is descending sorted.
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns>True if sorted, false if not.</returns>
         protected static bool IsDescendingSorted(int[] array)
         {
             for (int i = 0; i < array.Length - 1; i++)
@@ -165,7 +191,11 @@ namespace Sortier_Algorithmen.Algorithmen
 
             return true;
         }
-
+        /// <summary>
+        /// Checks if the number array is zigzag sorted.
+        /// </summary>
+        /// <param name="array">Number array.</param>
+        /// <returns>True if sorted, false if not.</returns>
         protected static bool IsZigZagSorted(int[] array)
         {
             for (int i = 0; i < array.Length; i++)

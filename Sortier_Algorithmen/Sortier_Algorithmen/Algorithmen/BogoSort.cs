@@ -63,9 +63,7 @@ namespace Sortier_Algorithmen.Algorithmen
             
             Console.WriteLine("----------------------------------------");
         }
-
         
-
         protected override void AscendingSort(ref int[] copyArray)
         {
             Random randomNumber = new Random();

@@ -3,22 +3,22 @@
     public class Goblin: Monster
     {
 
-        public Goblin(float _StartHP, float _StartAP, float _StartDP, float _StartS) : base()
+        public Goblin(float startHp, float startAp, float startDp, float startS) : base()
         {
-            this.m_OwnStats.m_Race = ERace.Goblin;
-            this.m_OwnStats.m_HealthPoints = _StartHP * (float)0.8;
-            this.m_OwnStats.m_AttackPoints = _StartAP * (float)0.8;
-            this.m_OwnStats.m_DefensePoints = _StartDP * (float)0.8;
-            this.m_OwnStats.m_Speed = _StartS * (float)1.2;            
+            this.OwnStats.Race = ERace.Goblin;
+            this.OwnStats.HealthPoints = startHp * (float)0.8;
+            this.OwnStats.AttackPoints = startAp * (float)0.8;
+            this.OwnStats.DefensePoints = startDp * (float)0.8;
+            this.OwnStats.Speed = startS * (float)1.2;            
         }
 
-        public Goblin(SStats _StartStats) : base(_StartStats)
+        public Goblin(SStats startStats) : base()
         {
-            this.m_OwnStats.m_Race = ERace.Goblin;
-            this.m_OwnStats.m_HealthPoints = _StartStats.m_HealthPoints * (float)0.8;
-            this.m_OwnStats.m_AttackPoints = _StartStats.m_HealthPoints * (float)0.8;
-            this.m_OwnStats.m_DefensePoints = _StartStats.m_AttackPoints * (float)0.8;  
-            this.m_OwnStats.m_Speed = _StartStats.m_DefensePoints * (float)1.2;
+            this.OwnStats.Race = ERace.Goblin;
+            this.OwnStats.HealthPoints = startStats.HealthPoints * (float)0.8;
+            this.OwnStats.AttackPoints = startStats.HealthPoints * (float)0.8;
+            this.OwnStats.DefensePoints = startStats.AttackPoints * (float)0.8;  
+            this.OwnStats.Speed = startStats.DefensePoints * (float)1.2;
         }
     }
 }

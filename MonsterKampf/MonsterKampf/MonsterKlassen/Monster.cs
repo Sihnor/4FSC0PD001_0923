@@ -6,16 +6,16 @@
         Troll = 2,
         Goblin = 3,
         Zwerg = 4,
-        Greif
+        Greif = 5
     }
 
     public struct SStats
     {
-        public ERace m_Race;
-        public float m_HealthPoints;
-        public float m_AttackPoints;
-        public float m_DefensePoints;
-        public float m_Speed;
+        public ERace Race;
+        public float HealthPoints;
+        public float AttackPoints;
+        public float DefensePoints;
+        public float Speed;
     }
 
     public abstract class Monster
@@ -26,62 +26,86 @@
             this.MonsterIndex = Index;
         }
 
-        public Monster(float _StartHP, float _StartAP, float _StartDP, float _StartS)
+        public Monster(float startHp, float startAp, float startDp, float startS)
         {
-            this.m_OwnStats.m_HealthPoints = _StartHP;
-            this.m_OwnStats.m_AttackPoints = _StartAP;
-            this.m_OwnStats.m_DefensePoints = _StartDP;
-            this.m_OwnStats.m_Speed = _StartS;
+            this.OwnStats.HealthPoints = startHp;
+            this.OwnStats.AttackPoints = startAp;
+            this.OwnStats.DefensePoints = startDp;
+            this.OwnStats.Speed = startS;
 
             Index++;
             this.MonsterIndex = Index;
         }
         
-        public Monster(SStats _StartStats)
+        public Monster(SStats startStats)
         {
-            this.m_OwnStats = _StartStats;
+            this.OwnStats = startStats;
             
             Index++;
             this.MonsterIndex = Index;
         }
         
-        protected SStats m_OwnStats;
+        protected SStats OwnStats;
 
         private static int Index = -1;
 
         private readonly int MonsterIndex = -1;
         
-        public void Attack(Monster _Enemy)
+        /// <summary>
+        /// Attack the enemy with the own attack points
+        /// </summary>
+        /// <param name="enemy"></param>
+        public void Attack(Monster enemy)
         {
-            float damage = this.m_OwnStats.m_AttackPoints - _Enemy.m_OwnStats.m_DefensePoints;
+            float damage = this.OwnStats.AttackPoints - enemy.OwnStats.DefensePoints;
             if (damage < 0)
             {
                 damage = 1;
             }
 
-            _Enemy.DealDamage(damage);
+            enemy.DealDamage(damage);
         }
 
-        public void DealDamage(float _Damage)
+        /// <summary>
+        /// Deal damage to the own health points
+        /// </summary>
+        /// <param name="damage"></param>
+        private void DealDamage(float damage)
         {
-            this.m_OwnStats.m_HealthPoints -= _Damage;
+            this.OwnStats.HealthPoints -= damage;
         }
 
+        /// <summary>
+        /// Get the Monster Race
+        /// </summary>
+        /// <returns>The Mosnter Race</returns>
         public ERace GetMonsterRace()
         {
-            return this.m_OwnStats.m_Race;
+            return this.OwnStats.Race;
         }
 
+        /// <summary>
+        /// Get the Monster Speed Points
+        /// </summary>
+        /// <returns></returns>
         public float GetSpeed()
         {
-            return this.m_OwnStats.m_Speed;
+            return this.OwnStats.Speed;
         }
 
+        /// <summary>
+        /// Get the Monster Health Points
+        /// </summary>
+        /// <returns></returns>
         public float GetHealth()
         {
-            return this.m_OwnStats.m_HealthPoints;
+            return this.OwnStats.HealthPoints;
         }
 
+        /// <summary>
+        /// Get the Monster Index in the Monster List
+        /// </summary>
+        /// <returns></returns>
         public int GetIndex()
         {
             return this.MonsterIndex;
