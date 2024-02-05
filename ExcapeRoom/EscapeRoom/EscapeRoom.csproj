@@ -41,8 +41,6 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Chest.cs" />
-        <Compile Include="Player.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Room.cs" />
         <Compile Include="WallPrint.cs" />
